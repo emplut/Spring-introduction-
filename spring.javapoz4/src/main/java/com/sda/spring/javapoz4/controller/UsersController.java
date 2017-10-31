@@ -14,7 +14,7 @@ public class UsersController {
     @Autowired
     private SomeService someService;
 
-    @Qualifier("smallNumberGenerator")
+//    @Qualifier("smallNumberGenerator")
     @Autowired
     private RandomNumberGeneratorService randomNumberGeneratorService;
 

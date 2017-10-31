@@ -17,7 +17,7 @@ public class CalcController {
     private CalcService calcService;
 
     @Autowired
-    @Qualifier ("smallNumberGenerator") //w środku ctrl+spacja
+//    @Qualifier ("smallNumberGenerator") //w środku ctrl+spacja
     private NumberGenerator numberGenerator;
 
     @GetMapping("/calc/sum")
@@ -35,6 +35,8 @@ public class CalcController {
         System.out.println(firstValue + "*" + secondValue + "=" + calcService.mulltiply(firstValue,secondValue));
         return new ModelAndView("home");
     }
+
+
 
 
 }
