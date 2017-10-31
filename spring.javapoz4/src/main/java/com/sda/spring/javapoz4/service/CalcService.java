@@ -2,14 +2,22 @@ package com.sda.spring.javapoz4.service;
 
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class CalcService {
 
+    private String message;
+
+    public CalcService(String message) {
+        this.message = message;
+    }
+
     public int sum (int a, int b){
+        System.out.println(message);
         return a+b;
     }
 
     public int mulltiply (int a, int b){
+        System.out.println(message);
         return a*b;
     }
 
