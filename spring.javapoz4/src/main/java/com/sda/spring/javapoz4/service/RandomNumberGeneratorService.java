@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import java.util.Random;
 
 //@Component
-public class RandomNumberGeneratorService {
+public class RandomNumberGeneratorService implements NumberGenerator {
 
     private int bound;
 
