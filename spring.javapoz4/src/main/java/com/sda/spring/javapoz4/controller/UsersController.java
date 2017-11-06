@@ -25,12 +25,27 @@ public class UsersController {
       return modelAndView;
     }
 
-    @GetMapping(params = {"firstName"})
-    public ModelAndView getUsers (@RequestParam("firstName") String firstName){
-        System.out.println(firstName);
-        return new ModelAndView("users");
+    @GetMapping(params = {"lastName"})
+    public ModelAndView getUsers (@RequestParam("lastName") String lastName){
+        ModelAndView modelAndView = new ModelAndView("users");
+        modelAndView.addObject(lastName);
+        return modelAndView;
     }
 
+    // B1. nowa metoda na sciezke / users
+    // B2. parameter firstName
+    // B3. w UsersService piszemy metode getUsersByFirstName -> List<User>
+    // B4. System.out.println(lista)
+
+
+    //B1
+    @GetMapping(params = {"firstName"})
+    public ModelAndView getUsersByFirstName (@RequestParam("firstName") String firstName){
+        ModelAndView modelAndView = new ModelAndView("users");
+        modelAndView.addObject("users", userService.getUsersByFirstName(firstName));
+        return modelAndView;
+    }
+    //A4 (RequestMapping)
     @GetMapping("/example")
     public ModelAndView getExampleUser(){
         System.out.println(userService.getExampleUser());

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class UserService {
@@ -22,13 +23,12 @@ public class UserService {
     @Autowired
     private LastNameGenerator lastNameGenerator;
 
-    public UserService(){
+    public UserService() {
         this.users = new ArrayList<>();
-
     }
 
     @PostConstruct
-    public void init(){
+    public void init() {
         this.users.add(getExampleUser());
         this.users.add(getExampleUser());
         this.users.add(getExampleUser());
@@ -40,11 +40,12 @@ public class UserService {
         users.forEach(user -> System.out.println(user));
     }
 
-    public User getUser(int id){
+    public User getUser(int id) {
         return id >= users.size() ? null : users.get(id);
     }
 
-    public User getExampleUser (){
+    //A2
+    public User getExampleUser() {
         User user = new User();
         user.setId(1);
         user.setFirstName(firstNameGenerator.getRandomFirstName());
@@ -53,7 +54,17 @@ public class UserService {
         return user;
     }
 
+
+// A2. Nowa klasa: UserService - getExampleUser (metoda ktora zwaraca obiekt typu user z przykladowymi danymi
+// A3. Dorzucamy ja do kontekstu Springa
+// A4. UsersController getUser -> "/users/example    (mapping na geta)
+
+
+    public List<User> getUsersByFirstName (String firstName){
+    return users.stream()
+            .filter(user -> user.getFirstName().equals(firstName))
+            .collect(Collectors.toList());
+    }
+
+
 }
-// 2. Nowa klasa: UserService - getExampleUser (metoda ktora zwaraca obiekt typu user z przykladowymi danymi
-// 3. Dorzucamy ja do kontekstu Springa
-// 4. UsersController getUser -> "/users/example    (mapping na geta)
