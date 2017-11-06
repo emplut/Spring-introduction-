@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-@Controller
+@Controller//
 
 public class CalcController {
 
@@ -20,7 +20,7 @@ public class CalcController {
 //    @Qualifier ("smallNumberGenerator") //w środku ctrl+spacja
     private NumberGenerator numberGenerator;
 
-    @GetMapping("/calc/sum")
+    @GetMapping("/calc/sum")//metoda opowiada na zapytanie (get)
     public ModelAndView sum(){
         int firstValue = numberGenerator.generateNumber();
         int secondValue = numberGenerator.generateNumber();

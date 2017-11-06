@@ -10,6 +10,10 @@ public class IncrementalNumberGeneratorService implements NumberGenerator {
 
     private int couter;
 
+    public IncrementalNumberGeneratorService(){
+        System.out.println("Hello from constructor");
+    }
+
     @Override
     public int generateNumber() {
         return couter++;
