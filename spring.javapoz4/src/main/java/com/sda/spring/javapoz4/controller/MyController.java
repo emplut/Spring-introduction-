@@ -18,7 +18,7 @@ public class MyController {
     @Autowired
     private RandomNumberGeneratorService randomNumberGeneratorService;
 
-    @GetMapping ("/users")
+    @GetMapping ("/usersdd")
     public ModelAndView users(){
         someService.someAction();
         return new ModelAndView("home");
