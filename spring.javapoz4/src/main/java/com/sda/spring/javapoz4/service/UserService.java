@@ -67,4 +67,11 @@ public class UserService {
     }
 
 
+    public List<User> getAllUsers() {
+        return users;
+    }
+
+    public void addUser(User user) {
+        users.add(user);
+    }
 }

@@ -8,18 +8,14 @@
 <body>
 <ul>
     <div>
-        <li th:each="news,iter: ${allNews}" style=" list-style-type: none; border: 1px solid black; margin: 20px 0">
-            <a th:href="'/news/' + ${iter.index}" >
         <h1 th:text="${news.title}">Title</h1>
         <h6 th:text="${news.author.firstName} + ' ' + ${news.author.lastName} + '-' + ${news.date}">
             Jan Kowalksi - 21.06.2017
         </h6>
-        <p th:text="${news.abbreviateDescription}">Description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci
+        <p th:text="${news.description}">Description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci
             impedit magni minima, odioquis sit unde voluptates! Accusamus aperiam
             eius magni nulla numquam perspiciatis placeat quas quidem quod voluptatum.
         </p>
-            </a>
-        </li>
     </div>
 </ul>
 </body>

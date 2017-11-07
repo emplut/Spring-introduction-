@@ -1,5 +1,7 @@
 package com.sda.spring.javapoz4.model;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.time.LocalDate;
 
 public class News {
@@ -71,6 +73,10 @@ public class News {
 
     public void setAuthor(User author) {
         this.author = author;
+    }
+
+    public String getAbbreviateDescription(){
+        return StringUtils.abbreviate(description,20);
     }
 }
 // N1. nowa klasa News - id(long), title, description, date, smallImgPath, bingImgPath, author(user)
